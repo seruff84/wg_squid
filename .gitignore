@@ -1,0 +1,5 @@
+*.*!/docker-compose.yml
+!/rules.v4
+!/wg_pre_up
+!/.squid/
+!/.nginx/

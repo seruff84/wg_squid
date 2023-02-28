@@ -1,0 +1,1 @@
+WG_PRE_UP=iptables -t nat -A PREROUTING  -i wg+ -p tcp --dport 3128 -j DNAT --to-destination  $(nslookup squid | grep  'Address' | tail -1 | awk -F ':' '{print $2}'); iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 3128 -j SNAT --to-source $(ip a | grep eth0 | grep inet | awk -F ' ' '{print $2}' | awk -F '/' '{print $1}')
